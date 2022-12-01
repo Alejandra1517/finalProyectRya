@@ -1,0 +1,239 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+       
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+ 
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row p-2">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+
+                        <h2 class="mx-2 blockquote">Crear cotización</h2>
+        
+                      </div>
+
+
+                    <div class="card-body">
+
+
+                        <div class="row g-3">
+
+                            <div class="col-sm-7">
+                              <input type="text" class="form-control" placeholder="Servicio">
+                            </div>
+                            <div class="col-sm">
+                              <input type="number" class="form-control" placeholder="Cantidad">
+                            </div>
+
+                        <div class="row g-2">
+
+
+                            <div class="col-sm-3 mb-2 ml-2">
+                                <label for="exampleFormControlInput1" class="form-label">Fecha de vencimiento</label>
+                            </div>
+
+                             <div class="col-sm-3 mr-5">
+                                <input type="date" class="form-control">
+                            </div>
+
+                             <div class="col-sm-3">
+                                <input type="number" class="form-control" placeholder="Costo mano de obra">
+                            </div>
+
+
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Describa el servicio que desea" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <label for="floatingTextarea2">Descripción</label>
+                            </div>
+
+                            <div class="col-auto">
+                            <button class="btn btn-success float-right" (click)="agregarCotizaciones()">Agregar cotización</button>
+                              </div>
+
+                        </div>
+
+
+                          </div>
+
+
+                    </div>
+                  </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="row p-2 mt-3 mb-5">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <nav class="navbar bg-light mx-3">
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+         
+                </nav>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <section class="ftco-section">
+                  <div class="container">
+                    <div class="row justify-content-center">
+              
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="table-wrap">
+
+
+                          <table id="example2" class="table table-bordered table-hover">
+                            <thead class="table-dark">
+                            <tr>
+                              <th>Servicio</th>
+                              <th>Cantidad</th>
+                              <th>Materiales</th>
+                              <th>Fecha inicio</th>
+                              <th>Fecha de vencimiento</th>
+                              <th>Total</th>
+                              <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let cotizacion of cotizaciones">
+                              <td>{{ cotizacion.servicio }}</td>
+                               <td>{{ cotizacion.cantidad }}</td>
+                               <td><button class="btn btn-success" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-plus"></i></button>
+                               </td>
+                               <td>{{ cotizacion.fechaInicio }}</td>                         
+                               <td>{{ cotizacion.fechaDuracion }}</td>                         
+                               <td>{{ cotizacion.total }}</td>                         
+                               <td><button  class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></button>
+                                 <button class="btn btn-danger" (click)="eliminarCotizacion(cotizacion)"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>                         
+                            </tbody>
+                           
+                          </table>
+                        
+                          <div class="col-auto">
+                            <button type="button" class="btn btn-success float-right">Guardar cotización</button>
+                              </div>
+                            <div class="col-auto">
+                                <button routerLink="/cotizaciones" type="button" class="btn btn-danger float-right mx-2">Cancelar</button>
+                            </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              
+              </div>
+              <!-- /.card-body -->
+            </div>
+        
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+
+
+
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Agregar materiales</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+      
+              <div class="container">
+                   <!-- Info boxes -->
+                  <div class="row p-2">
+                  <div class="col-md-12">
+                  
+                     
+                      <nav class="navbar bg-light mx-3">
+                          <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                          </form>
+               
+                      </nav>
+      
+                        <table id="example2" class="table table-bordered table-hover mt-3 p-2">
+                          <thead class="table-dark">
+                          <tr>
+                            <th>Nombre material</th>
+                            <th>Cantidad</th>
+                            <th>Precio unitario</th>
+                            <th>Acciones</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td>Cemento</td>
+                             <td>
+                              <input type="number" class="form-control sm-3" id="exampleInputEmail1" aria-describedby="emailHelp">
+                             </td>
+                             <td>30.000</td>
+                             <td>
+      
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                </div>
+      
+                             </td>                         
+                          </tbody>
+                         
+                        </table>
+      
+                        <label for="exampleFormControlInput1" class="form-label">Total materiales</label>
+      
+                        <fieldset disabled>
+                            <input type="number" placeholder="100.000" class="form-control">                            
+                    </fieldset>
+      
+      
+      
+                </div>
+              </div>
+              </div>
+      
+      
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              
+              <button type="button" class="btn btn-primary" (click)="modificarCotizacion()" data-dismiss="modal">Guardar</button>
+            </div>
+          </div>
+      
+      
+      
+        </div>
+      </div>
+
+    </section>
+
+</div>
