@@ -17,26 +17,36 @@ export class ModificarSolicitudComponent  {
   solicitudesArray: modificarSolicitud[] = [
     {
 
-     servicio: "nada",
+     servicio: "revocar",
      cantidad: 1,
+     fechaInicio: "06/12/2022",
+     fechaVencimiento: "06/12/2022",
+     costoManoDeObra: 500000,
+     descripcion: "Fachada",
      total: 700000
     
     },
     {
 
-      servicio: "nada",
+      servicio: "pintar",
       cantidad: 1,
+      fechaInicio: "06/12/2022",
+      fechaVencimiento: "06/12/2022",
+      costoManoDeObra: 500000,
+      descripcion: "Esmalte sintético",
       total: 800000
      
     }
   ];
 
 
+
+
   selectedSolicitud: modificarSolicitud = new modificarSolicitud();
 
-  editCliente:any = {};
+  editSolicitud:any = {};
 
-  agregarCliente(){
+  agregarSolicitud(){
   
     this.solicitudesArray.push(this.selectedSolicitud);
 
@@ -53,16 +63,16 @@ export class ModificarSolicitudComponent  {
 
 
   
-  cargarCliente(cliente: modificarSolicitud){
+  cargarSolicitud(solicitud: modificarSolicitud){
 
-    this.editCliente=cliente; 
+    this.editSolicitud=solicitud; 
 
   }
 
 
-  editarCliente(){
+  editarSolicitud(){
 
-    this.selectedSolicitud = this.editCliente
+    this.selectedSolicitud = this.editSolicitud
 
     this.toastrSve.info('Editado correctamente')
       
@@ -71,7 +81,7 @@ export class ModificarSolicitudComponent  {
 
 
 
-  eliminarCliente(){
+  eliminarSolicitud(){
 
     if (confirm("¿Está seguro de eliminar el usuario?")){
 

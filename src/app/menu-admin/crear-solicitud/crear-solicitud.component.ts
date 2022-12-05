@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -22,7 +22,7 @@ export class CrearSolicitudComponent {
     {
 
      servicio: "baldosa",
-     cantidad: 3,
+     cantidad: 0,
      descripcion: "baldosa blanca"
     
     },
@@ -40,6 +40,8 @@ export class CrearSolicitudComponent {
   solicitudesForm: FormGroup;
   solicitudesEditForm: FormGroup;
 
+  pattern:any =  "^[a-zA-Z\s]{1,254}"
+
 
   constructor(private fb: FormBuilder,
     private toastrSve: ToastrService) {
@@ -47,15 +49,15 @@ export class CrearSolicitudComponent {
 
 
       this.solicitudesForm = this.fb.group({
-        servicio: ['', Validators.required],
+        servicio: ['', [Validators.required, Validators.pattern(this.pattern)]],
         cantidad: ['', Validators.required],
-        descripcion: ['', Validators.required]
+        descripcion: ['', [Validators.required, Validators.pattern(this.pattern)]]
       })
 
       this.solicitudesEditForm = this.fb.group({
-        servicio: ['', Validators.required],
+        servicio: ['', [Validators.required, Validators.pattern(this.pattern)]],
         cantidad: ['', Validators.required],
-        descripcion: ['', Validators.required]
+        descripcion: ['', [Validators.required, Validators.pattern(this.pattern)]]
       })
 
 
@@ -68,7 +70,7 @@ export class CrearSolicitudComponent {
   
     this.solicitudes.push(this.selectedSolicitudes);
 
-    this.toastrSve.success('Categoría registrada correctamente');
+    this.toastrSve.success('Agregada correctamente');
 
     this.selectedSolicitudes = new crearSolicitud()
 

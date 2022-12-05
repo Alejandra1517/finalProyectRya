@@ -118,8 +118,7 @@
                                <td>{{ cotizacion.cantidad }}</td>
                                <td><button class="btn btn-success" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-plus"></i></button>
                                </td>
-                               <td>{{ cotizacion.fechaInicio }}</td>                         
-                               <td>{{ cotizacion.fechaDuracion }}</td>                         
+                               <td>{{ cotizacion.fechaInicio }}</td>                              
                                <td>{{ cotizacion.total }}</td>                         
                                <td><button  class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></button>
                                  <button class="btn btn-danger" (click)="eliminarCotizacion(cotizacion)"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>                         
@@ -131,7 +130,7 @@
                             <button type="button" class="btn btn-success float-right">Guardar cotización</button>
                               </div>
                             <div class="col-auto">
-                                <button routerLink="/cotizaciones" type="button" class="btn btn-danger float-right mx-2">Cancelar</button>
+                                <button routerLink="../cotizaciones" type="button" class="btn btn-danger float-right mx-2">Cancelar</button>
                             </div>
 
 

@@ -18,18 +18,22 @@ import { CrearSolicitudComponent } from './menu-admin/crear-solicitud/crear-soli
 import { ModificarSolicitudComponent } from './menu-admin/modificar-solicitud/modificar-solicitud.component';
 import { CrearCotizacionComponent } from './menu-admin/crear-cotizacion/crear-cotizacion.component';
 import { ModificarCotizacionComponent } from './menu-admin/modificar-cotizacion/modificar-cotizacion.component';
-import { FooterComponent } from './menu-admin/footer/footer.component';
+
 import { ServiciosClientesComponent } from './menu-cliente/servicios-clientes/servicios-clientes.component';
 import { SolicitudesClientesComponent } from './menu-cliente/solicitudes-clientes/solicitudes-clientes.component';
 import { ObrasClientesComponent } from './menu-cliente/obras-clientes/obras-clientes.component';
 import { MainSidebarComponent } from './menu-admin/main-sidebar/main-sidebar.component'
 import { LoginComponent } from './login/login.component';
 import { MainSidebar2Component } from './menu-cliente/main-sidebar2/main-sidebar2.component';
+import { CrearSolicitudClienteComponent } from './menu-cliente/crear-solicitud-cliente/crear-solicitud-cliente.component';
+import { VerSolicitudComponent } from './menu-cliente/ver-solicitud/ver-solicitud.component';
 
 
 
 const routes:Routes = [
 
+
+  { path: '', redirectTo: 'main-sidebar', pathMatch: 'full'},
 
   { path: 'login', component:LoginComponent},
 
@@ -48,14 +52,24 @@ const routes:Routes = [
     {path: 'cotizaciones', component:CotizacionesComponent},
     {path: 'obras', component:ObrasComponent},
     {path: 'configuracion', component:ConfiguracionComponent},
+ 
     {path: 'crear-solicitud', component:CrearSolicitudComponent},
     {path: 'crear-cotizacion', component:CrearCotizacionComponent},
     {path: 'modificar-cotizacion', component:ModificarCotizacionComponent},
     {path: 'modificar-solicitud', component:ModificarSolicitudComponent}
 
+ 
   ]
+  
+
+
 
   },
+
+ 
+
+
+
 
 
   { path: 'main-sidebar2', component:MainSidebar2Component,
@@ -67,6 +81,10 @@ const routes:Routes = [
     {path: 'obras-clientes', component:ObrasClientesComponent},
     {path: 'servicios-clientes', component:ServiciosClientesComponent},
     {path: 'solicitudes-clientes', component:SolicitudesClientesComponent},
+
+    
+    {path: 'crear-solicitudesCliente', component:CrearSolicitudClienteComponent},
+    {path: 'verSolicitud', component:VerSolicitudComponent}
    
 
   ]

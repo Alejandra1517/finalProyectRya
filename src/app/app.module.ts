@@ -32,6 +32,7 @@ import { MainSidebarComponent } from './menu-admin/main-sidebar/main-sidebar.com
 import { LoginComponent } from './login/login.component';
 import { MainSidebar2Component } from './menu-cliente/main-sidebar2/main-sidebar2.component';
 import { CrearSolicitudClienteComponent } from './menu-cliente/crear-solicitud-cliente/crear-solicitud-cliente.component';
+import { VerSolicitudComponent } from './menu-cliente/ver-solicitud/ver-solicitud.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { CrearSolicitudClienteComponent } from './menu-cliente/crear-solicitud-c
     MainSidebarComponent,
     LoginComponent,
     MainSidebar2Component,
-    CrearSolicitudClienteComponent
+    CrearSolicitudClienteComponent,
+    VerSolicitudComponent
   ],
   imports: [
     BrowserModule,

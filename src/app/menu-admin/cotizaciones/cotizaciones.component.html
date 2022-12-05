@@ -25,7 +25,7 @@
                       <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
          
-                    <button routerLink="/crear-cotizacion" class="btn btn-success float-right mt-1"><i class="fa-solid fa-plus"></i></button>
+                    <button routerLink="../crear-cotizacion" class="btn btn-success float-right mt-1"><i class="fa-solid fa-plus"></i></button>
                 </nav>
               </div>
               <!-- /.card-header -->
@@ -57,7 +57,7 @@
                                <td>{{ cotizacion.fechaInicio }}</td>
                                <td>{{ cotizacion.fechaDuracion }}</td>
                                
-                              <td><button routerLink="/modificar-cotizacion" class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" (click)="eliminarCotizacion()"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>
+                              <td><button routerLink="../modificar-cotizacion" class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" (click)="eliminarCotizacion()"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>
                          
                             </tbody>
                            

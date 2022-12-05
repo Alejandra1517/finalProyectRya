@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Solicitudes } from '../../models/solicitudes-clientes';
+import { Solicitudes } from 'src/app/models/solicitudes-clientes';
 
 @Component({
-  selector: 'app-solicitudes-clientes',
-  templateUrl: './solicitudes-clientes.component.html',
-  styleUrls: ['./solicitudes-clientes.component.css'],
+  selector: 'app-ver-solicitud',
+  templateUrl: './ver-solicitud.component.html',
+  styleUrls: ['./ver-solicitud.component.css']
 })
-export class SolicitudesClientesComponent {
+export class VerSolicitudComponent {
+
   constructor(private toastrSve: ToastrService) {}
 
   solicitudesArray: Solicitudes[] = [
@@ -70,4 +71,5 @@ export class SolicitudesClientesComponent {
       this.toastrSve.error('Eliminado correctamente');
     }
   }
+
 }

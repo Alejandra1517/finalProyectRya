@@ -17,70 +17,33 @@ export class SolicitudesComponent {
     {
       idSolicitud: 1,
       nombreCliente: "Julian",
-      servicios: "Enchape",
+      servicios: "Revocar",
       estado: "activo"
     },
     {
       idSolicitud: 2,
       nombreCliente: "Julio",
-      servicios: "ventana",
+      servicios: "Pintar",
       estado: "activo"
     }
   ];
 
   selectedSolicitud: Solicitudes = new Solicitudes();
 
-  editCliente:any = {};
 
-  agregarSolicitud(){
-  
-    this.solicitudesArray.push(this.selectedSolicitud);
+  eliminarSolicitud(solicitud: Solicitudes){
 
-    this.selectedSolicitud = new Solicitudes() //Limpia el campo de texto
-    
-    // this.selectedCliente.id += 1;
+    if (confirm("¿Está seguro de eliminar el cliente?")){
 
-    this.toastrSve.success('Agregado correctamente');
-
-
-  }
-
-  
-  cargarSolicitud(cliente: Solicitudes){
-
-    this.editCliente=cliente; 
-
-  }
-
-
-  editarSolicitud(){
-
-    this.selectedSolicitud = this.editCliente
-
-    this.toastrSve.info('Editado correctamente')
-      
-
-  }
-
-
-  eliminarSolicitud(){
-
-    if (confirm("¿Está seguro de eliminar el usuario?")){
-
-      this.solicitudesArray = this.solicitudesArray.filter(x => x != this.selectedSolicitud)
-
+      this.solicitudesArray = this.solicitudesArray.filter(x => x != solicitud)
      
-      this.selectedSolicitud = new Solicitudes()
-
-      this.toastrSve.error('Eliminado correctamente')
+         solicitud = new Solicitudes()
+    
+          this.toastrSve.error('Eliminado correctamente')
 
     }
 
 
   }
-
-
-
-
 
 }
