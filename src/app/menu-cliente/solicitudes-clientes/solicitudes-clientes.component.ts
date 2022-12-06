@@ -17,6 +17,7 @@ export class SolicitudesClientesComponent {
       servicios: 'Enchape',
       estado: 'activo',
 
+
       servicio: 'puerta',
       cantidad: 2,
       descripcion: 'de madera :v',
@@ -27,6 +28,7 @@ export class SolicitudesClientesComponent {
       nombreCliente: 'Julio',
       servicios: 'ventana',
       estado: 'activo',
+
 
       servicio: 'baldosa',
       cantidad: 0,

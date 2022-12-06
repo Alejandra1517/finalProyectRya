@@ -40,14 +40,14 @@ export class ClientesComponent{
       this.clientesForm = this.fb.group({
         nombreCliente: ['', [Validators.required, Validators.pattern(this.pattern)]],
         documento: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(11)]],
-        telefono: ['', Validators.required],
+        telefono: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(13)]],
         direccion: ['', Validators.required]
       })
 
       this.clientesEditForm = this.fb.group({
         nombreCliente: ['', [Validators.required, Validators.pattern(this.pattern)]],
-        documento: ['', Validators.required],
-        telefono: ['', Validators.required],
+        documento: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(11)]],
+        telefono: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(13)]],
         direccion: ['', Validators.required]
       })
 

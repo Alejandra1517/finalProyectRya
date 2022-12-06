@@ -14,15 +14,95 @@
 
     <section class="content">
       <div class="container-fluid">
+
+
+        
+        <div class="row px-2 mb-3">
+          <div class="col-sm-12">
+  
+            <div class="card ">
+              <div class="card-header">
+  
+                <h2 class="mx-2 blockquote">Crear cotizacion</h2>
+  
+              </div>
+  
+  
+              <div class="card-body">
+
+                <div class="row g-3">
+  
+                    <div class="col-sm-3 mb-3">
+                      <input type="text" class="form-control" placeholder="Nombre cliente">
+                    </div>
+               
+  
+                </div>
+  
+                <div class="row g-3 mb-3">
+                 
+                  <div class="col-auto">
+  
+                    <label for="exampleFormControlInput1" class="form-label ml-2">Subtotal</label>
+  
+                    <div class="col-sm-8">
+                      <fieldset disabled>
+                        <input type="number" placeholder="1.500.000" class="form-control">
+                      </fieldset>
+                    </div>
+  
+                  </div>
+                  <div class="col-auto">
+                    <!-- <div class="col-sm-4"> -->
+                    <label for="exampleFormControlInput1" class="form-label ml-2">Fecha vencimiento</label>
+  
+                    <!-- </div> -->
+  
+                    <div class="col-sm-12">
+                      <input type="date" class="form-control">
+                    </div>
+  
+                  </div>
+  
+                  <div class="col-auto">
+  
+                    <label for="exampleFormControlInput1" class="form-label ml-2">Mano de obra</label>
+  
+                    <div class="col-sm-12">
+                      <input type="number" class="form-control" placeholder="Costo mano de obra">
+                    </div>
+  
+  
+                  </div>
+  
+                </div>
+  
+               
+  
+                <div class="col-auto">
+                  <button routerLink="../obras" type="button" class="btn btn-success float-right">Enviar cotización</button>
+                </div>
+                <div class="col-auto">
+                  <button routerLink="../cotizaciones" type="button"
+                    class="btn btn-danger float-right mx-2">Cancelar</button>
+                </div>
+  
+  
+  
+  
+              </div>
+            </div>
+  
+  
+          </div>
+        </div>
+  
+
+
         <div class="row p-2">
             <div class="col-md-12">
 
                 <div class="card">
-                    <div class="card-header">
-
-                        <h2 class="mx-2 blockquote">Crear cotización</h2>
-        
-                      </div>
 
 
                     <div class="card-body">
@@ -40,17 +120,7 @@
                         <div class="row g-2">
 
 
-                            <div class="col-sm-3 mb-2 ml-2">
-                                <label for="exampleFormControlInput1" class="form-label">Fecha de vencimiento</label>
-                            </div>
-
-                             <div class="col-sm-3 mr-5">
-                                <input type="date" class="form-control">
-                            </div>
-
-                             <div class="col-sm-3">
-                                <input type="number" class="form-control" placeholder="Costo mano de obra">
-                            </div>
+                  
 
 
                             <div class="form-floating">
@@ -59,7 +129,7 @@
                             </div>
 
                             <div class="col-auto">
-                            <button class="btn btn-success float-right" (click)="agregarCotizaciones()">Agregar cotización</button>
+                            <button class="btn btn-success float-right" (click)="agregarCotizaciones()">Agregar servicio</button>
                               </div>
 
                         </div>
@@ -76,79 +146,88 @@
         </div>
 
 
-        <div class="row p-2 mt-3 mb-5">
+
+  
+        <div class="row px-2 mb-1">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <nav class="navbar bg-light mx-3">
-                    <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
-         
-                </nav>
+               
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <section class="ftco-section">
                   <div class="container">
                     <div class="row justify-content-center">
-              
+  
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <div class="table-wrap">
-
-
-                          <table id="example2" class="table table-bordered table-hover">
+                        <div class="table-wrap col-sm-12">
+  
+  
+                          <table id="example2" class="table table-bordered table-hover col-sm-12">
                             <thead class="table-dark">
-                            <tr>
-                              <th>Servicio</th>
-                              <th>Cantidad</th>
-                              <th>Materiales</th>
-                              <th>Fecha inicio</th>
-                              <th>Fecha de vencimiento</th>
-                              <th>Total</th>
-                              <th>Acciones</th>
-                            </tr>
+                              <tr>
+                                <th>Servicio</th>
+                                <th>Cantidad</th>
+                                <th>Descripcion</th>
+                                <th>Materiales</th>
+                                <th>Fecha inicio</th>
+                                <th>Total servicios</th>
+                                <th>Acciones</th>
+                              </tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let cotizacion of cotizaciones">
-                              <td>{{ cotizacion.servicio }}</td>
-                               <td>{{ cotizacion.cantidad }}</td>
-                               <td><button class="btn btn-success" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-plus"></i></button>
-                               </td>
-                               <td>{{ cotizacion.fechaInicio }}</td>                              
-                               <td>{{ cotizacion.total }}</td>                         
-                               <td><button  class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></button>
-                                 <button class="btn btn-danger" (click)="eliminarCotizacion(cotizacion)"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>                         
+                              <tr *ngFor="let solicitud of cotizaciones">
+                                <td>{{ solicitud.servicio }}</td>
+                                <td>{{ solicitud.cantidad }}</td>
+                                <td>{{ solicitud.descripcion }}</td>
+                                <td><button class="btn btn-success ml-2" data-toggle="modal"
+                                    data-target="#exampleModal"><i class="fa-solid fa-plus"></i></button>
+                                </td>
+                                <td>{{ solicitud.fechaInicio }}</td>
+                                <td>{{ solicitud.total }}</td>
+                                <td>
+                                  <button class="btn btn-warning m-2" data-toggle="modal"
+                                  data-target="#modificar"><i class="fa-solid fa-pen-to-square"></i></button>
+                                  <button class="btn btn-danger m-2"><i class="fa-sharp fa-solid fa-trash-can"></i></button>
+                                </td>
                             </tbody>
-                           
+  
                           </table>
-                        
-                          <div class="col-auto">
-                            <button type="button" class="btn btn-success float-right">Guardar cotización</button>
-                              </div>
-                            <div class="col-auto">
-                                <button routerLink="../cotizaciones" type="button" class="btn btn-danger float-right mx-2">Cancelar</button>
-                            </div>
-
-
+  
+                          
+  
+  
                         </div>
                       </div>
                     </div>
                   </div>
                 </section>
-              
+  
               </div>
               <!-- /.card-body -->
             </div>
-        
+  
             <!-- /.card -->
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
       <!-- /.container-fluid -->
 

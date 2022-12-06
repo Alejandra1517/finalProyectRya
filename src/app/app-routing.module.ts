@@ -27,6 +27,7 @@ import { LoginComponent } from './login/login.component';
 import { MainSidebar2Component } from './menu-cliente/main-sidebar2/main-sidebar2.component';
 import { CrearSolicitudClienteComponent } from './menu-cliente/crear-solicitud-cliente/crear-solicitud-cliente.component';
 import { VerSolicitudComponent } from './menu-cliente/ver-solicitud/ver-solicitud.component';
+import { RegistrarseComponent } from './registrarse/registrarse.component';
 
 
 
@@ -36,6 +37,8 @@ const routes:Routes = [
   { path: '', redirectTo: 'main-sidebar', pathMatch: 'full'},
 
   { path: 'login', component:LoginComponent},
+
+  { path: 'registrarse', component:RegistrarseComponent},
 
   { path: 'main-sidebar', component:MainSidebarComponent,
 

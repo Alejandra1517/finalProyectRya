@@ -42,10 +42,13 @@
 
 
                         <div class="list-group" *ngFor="let solicitud of solicitudesArray">
-                          <a routerLink="../verSolicitud" class="list-group-item list-group-item-action mt-2 mb-2" aria-current="true">
-                            {{ solicitud.servicio }}
+                          <a routerLink="../verSolicitud" class="list-group-item list-group-item-action mt-2 mb-2"
+                            aria-current="true">
+                            {{ solicitud.servicios }}
+                            <i class="fa-regular fa-newspaper float-right"></i>
                           </a>
-                     
+
+
                         </div>
 
 

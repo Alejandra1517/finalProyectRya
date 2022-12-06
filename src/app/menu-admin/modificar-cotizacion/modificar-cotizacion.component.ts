@@ -46,6 +46,7 @@ export class ModificarCotizacionComponent {
   cotizacionesForm: FormGroup;
   cotizacionesEditForm: FormGroup;
 
+  pattern:any =  "^[a-zA-Z\s]{1,254}"
 
 constructor(private fb: FormBuilder,
   private toastrSve: ToastrService) {
@@ -54,16 +55,16 @@ constructor(private fb: FormBuilder,
 
     this.cotizacionesForm = this.fb.group({
       cliente: ['', Validators.required],
-      servicio: ['', Validators.required],
+      servicio: ['', [Validators.required, Validators.pattern(this.pattern)]],
       cantidad: ['', Validators.required],
-      descripcion: ['', Validators.required]
+      descripcion: ['', [Validators.required, Validators.pattern(this.pattern)]]
     })
 
     this.cotizacionesEditForm = this.fb.group({
       cliente: ['', Validators.required],
-      servicio: ['', Validators.required],
+      servicio: ['', [Validators.required, Validators.pattern(this.pattern)]],
       cantidad: ['', Validators.required],
-      descripcion: ['', Validators.required]
+      descripcion: ['', [Validators.required, Validators.pattern(this.pattern)]]
     })
 
 

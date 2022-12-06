@@ -15,14 +15,27 @@ export class CotizacionesComponent {
       cliente: "Luis",
       estado: "activo",
       fechaInicio: "20/07/2022",
-      fechaDuracion: "20/12/2022"
+      fechaDuracion: "20/12/2022",
+
+      servicio: "revocar",
+      cantidad: 1,
+      
+     descripcion: "Fachada",
+     total: 700000
+
     },
     {
       id: 1,
       cliente: "Sofía",
       estado: "activo",
       fechaInicio: "04/01/2022",
-      fechaDuracion: "10/09/2022"
+      fechaDuracion: "10/09/2022",
+
+      servicio: "revocar",
+      cantidad: 1,
+      
+     descripcion: "Fachada",
+     total: 700000
     }
   ];
   

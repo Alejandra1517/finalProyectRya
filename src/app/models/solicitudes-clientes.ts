@@ -3,9 +3,13 @@ export class Solicitudes {
   nombreCliente!: string;
   servicios!: string;
   estado: string = 'Activo';
+  
 
   servicio!: string;
   cantidad!: number;
   descripcion!: string;
-  fecha: string = "06/12/2022" 
+  fecha: string = "06/12/2022";
+
+
+
 }

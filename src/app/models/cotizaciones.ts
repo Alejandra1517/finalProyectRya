@@ -4,4 +4,9 @@ export class Cotizaciones {
     estado!: string;
     fechaInicio!: string;
     fechaDuracion!: string;
+
+    servicio!: string;
+    cantidad!: number;
+    descripcion!: string;
+    total!: number;
 }
