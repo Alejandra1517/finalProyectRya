@@ -66,7 +66,7 @@
                                <td>{{ cotizacion.fechaInicio }}</td>
                                <td>{{ cotizacion.fechaDuracion }}</td>
                                
-                              <td><button routerLink="../modificar-cotizacion" class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" (click)="eliminarCotizacion()"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>
+                              <td><button routerLink="../modificar-cotizacion" class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" (click)="eliminarCotizacion(cotizacion)"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>
                          
                             </tbody>
                            
@@ -232,7 +232,7 @@
                        <td>{{ cotizacion.estado }}</td>
                        <td> <button class="btn btn-success" data-toggle="modal" data-target="#crearUsu"><i class="fa-solid fa-plus"></i></button></td>
 
-                       <td><button class="btn btn-warning m-2" data-toggle="modal" data-target="#exampleModal" (click)="cargarCotizacion(cotizacion)"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" (click)="eliminarCotizacion()"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>
+                       <td><button class="btn btn-warning m-2" data-toggle="modal" data-target="#exampleModal" (click)="cargarCotizacion(cotizacion)"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" (click)="eliminarCotizacion(cotizacion)"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>
                        
                  
                     </tbody>

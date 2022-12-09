@@ -17,20 +17,63 @@
       </div>
     -->
       <div class="col-md-8 col-lg-6 col-xl-4">
-        <form>
+        <form
+        [formGroup]="loginForm">
           
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="form3Example3">Correo</label>
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
+            <input 
+            formControlName="correo"
+            type="email" id="form3Example3" class="form-control form-control-lg"
               placeholder="Ingrese su correo" />
+
+              <div
+              class="text-danger"
+              *ngIf="
+                loginForm
+                  .get('correo')
+                  ?.hasError('required') &&
+                loginForm.get('correo')?.touched
+              "
+            >
+              <span>Llene este campo para iniciar sesión</span>
+            </div>
+
+            <div
+              class="text-danger"
+              *ngIf="
+                loginForm
+                  .get('correo')
+                  ?.hasError('pattern') && (
+                loginForm.get('correo')?.touched && loginForm.get('correo')?.dirty) 
+              "
+            >
+              <span>Ingrese un correo que sea <strong>valido</strong></span>
+            </div>
+
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
             <label class="form-label" for="form3Example4">Contraseña</label>
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
+            <input 
+            formControlName="contrasena"
+            type="password" id="form3Example4" class="form-control form-control-lg"
               placeholder="Ingrese su contraseña" />
+
+              <div
+              class="text-danger"
+              *ngIf="
+                loginForm
+                  .get('contrasena')
+                  ?.hasError('required') &&
+                loginForm.get('contrasena')?.touched
+              "
+            >
+              <span>Llene este campo para iniciar sesión</span>
+            </div>
+
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
@@ -45,9 +88,10 @@
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button routerLink="../main-sidebar"  type="button" class="btn btn-primary btn-lg"
+            <button  
+            [disabled]="loginForm.invalid" routerLink="../main-sidebar2" type="button" class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Iniciar sesión</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">¿No tienes una cuenta? <a href="#!"
+            <p class="small fw-bold mt-2 pt-1 mb-0">¿No tienes una cuenta? <a routerLink="../registrarse"
                 class="link-danger">Registrarme</a></p>
           </div>
 
@@ -71,7 +115,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">@</span>
           </div>
-          <input type="text" class="form-control" placeholder="Ingrese su correo electronico" aria-label="Username" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" placeholder="Ingrese su correo electrónico" aria-label="Username" aria-describedby="basic-addon1">
         </div>
         
 

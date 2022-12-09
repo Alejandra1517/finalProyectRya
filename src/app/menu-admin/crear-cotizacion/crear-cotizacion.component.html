@@ -179,18 +179,18 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let solicitud of cotizaciones">
-                                <td>{{ solicitud.servicio }}</td>
-                                <td>{{ solicitud.cantidad }}</td>
-                                <td>{{ solicitud.descripcion }}</td>
+                              <tr *ngFor="let cotizacion of cotizaciones">
+                                <td>{{ cotizacion.servicio }}</td>
+                                <td>{{ cotizacion.cantidad }}</td>
+                                <td>{{ cotizacion.descripcion }}</td>
                                 <td><button class="btn btn-success ml-2" data-toggle="modal"
                                     data-target="#exampleModal"><i class="fa-solid fa-plus"></i></button>
                                 </td>
-                                <td>{{ solicitud.fechaInicio }}</td>
-                                <td>{{ solicitud.total }}</td>
+                                <td>{{ cotizacion.fechaInicio }}</td>
+                                <td>{{ cotizacion.total }}</td>
                                 <td>
                                   <button class="btn btn-warning m-2" data-toggle="modal"
-                                  data-target="#modificar"><i class="fa-solid fa-pen-to-square"></i></button>
+                                  data-target="#modificarServicio"><i class="fa-solid fa-pen-to-square"></i></button>
                                   <button class="btn btn-danger m-2"><i class="fa-sharp fa-solid fa-trash-can"></i></button>
                                 </td>
                             </tbody>
@@ -233,84 +233,145 @@
 
 
 
-
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Agregar materiales</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-      
-              <div class="container">
-                   <!-- Info boxes -->
-                  <div class="row p-2">
-                  <div class="col-md-12">
-                  
-                     
-                      <nav class="navbar bg-light mx-3">
-                          <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
-                          </form>
-               
-                      </nav>
-      
-                        <table id="example2" class="table table-bordered table-hover mt-3 p-2">
-                          <thead class="table-dark">
-                          <tr>
-                            <th>Nombre material</th>
-                            <th>Cantidad</th>
-                            <th>Precio unitario</th>
-                            <th>Acciones</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr>
-                            <td>Cemento</td>
-                             <td>
-                              <input type="number" class="form-control sm-3" id="exampleInputEmail1" aria-describedby="emailHelp">
-                             </td>
-                             <td>30.000</td>
-                             <td>
-      
-                              <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                </div>
-      
-                             </td>                         
-                          </tbody>
-                         
-                        </table>
-      
-                        <label for="exampleFormControlInput1" class="form-label">Total materiales</label>
-      
-                        <fieldset disabled>
-                            <input type="number" placeholder="100.000" class="form-control">                            
-                    </fieldset>
-      
-      
-      
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar materiales</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+  
+            <div class="container">
+              <!-- Info boxes -->
+              <div class="row p-2">
+                <div class="col-md-12">
+  
+  
+                  <nav class="navbar bg-light mx-3">
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+  
+                  </nav>
+  
+                  <ul class="list-group p-2">
+                    <li class="list-group-item">Barillas</li>
+                  </ul>
+  
+                  <table id="example2" class="table table-bordered table-hover mt-4 p-2">
+                    <thead class="table-dark">
+                      <tr>
+                        <th>Nombre material</th>
+                        <th>Cantidad</th>
+                        <th>Precio unitario</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Barillas</td>
+                        <td>
+                          <input type="number" class="form-control sm-3" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" value="2">
+                        </td>
+                        <td>30.000</td>
+                        <td>
+  
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                          </div>
+  
+                        </td>
+                    </tbody>
+  
+                  </table>
+  
+                  <label for="exampleFormControlInput1" class="form-label">Total materiales</label>
+  
+                  <fieldset disabled>
+                    <input type="number" placeholder="100.000" class="form-control">
+                  </fieldset>
+  
+  
+  
                 </div>
               </div>
-              </div>
-      
-      
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              
-              <button type="button" class="btn btn-primary" (click)="modificarCotizacion()" data-dismiss="modal">Guardar</button>
+  
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+  
+            <button type="button" class="btn btn-primary" (click)="modificarCotizacion()" data-dismiss="modal">Guardar</button>
+          </div>
+        </div>
+  
+  
+  
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="modificarServicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modificar servicio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="container">
+            <!-- Info boxes -->
+            <div class="row p-2">
+              <div class="col-md-12">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Servicio</label>
+                  <input type="text" [(ngModel)]="editCotizacion.servicio" class="form-control"
+                    placeholder="Ingrese el servicio">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Cantidad</label>
+                  <input type="number" [(ngModel)]="editCotizacion.cantidad" class="form-control"
+                    placeholder="Ingrese la cantidad">
+                </div>
+                <div class="form-floating">
+                  <textarea class="form-control" [(ngModel)]="editCotizacion.descripcion"
+                    placeholder="Ingresa una descripcion" id="floatingTextarea2" style="height: 100px"></textarea>
+                </div>
+
+              </div>
             </div>
           </div>
-      
-      
-      
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+          <button type="button" class="btn btn-primary" (click)="modificarCotizacion()"
+            data-dismiss="modal">Modificar</button>
         </div>
       </div>
+
+
+
+
+
+
+    </div>
+  </div>
+  
+  
 
     </section>
 

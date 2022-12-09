@@ -79,20 +79,20 @@ export class CotizacionesComponent {
 
 
 
-  eliminarCotizacion(){
+  eliminarCotizacion(cotizacion: Cotizaciones){
 
     if (confirm("¿Está seguro de eliminar la cotización?")){
 
-      this.cotizacionesArray = this.cotizacionesArray.filter(x => x != this.selectedCotizacion)
+      this.cotizacionesArray = this.cotizacionesArray.filter(x => x != cotizacion)
      
-      this.selectedCotizacion = new Cotizaciones()
-
-      this.toastrSve.error('Cotización eliminada correctamente')
+      cotizacion = new Cotizaciones()
+    
+          this.toastrSve.error('Eliminada correctamente')
 
     }
 
 
-
   }
+
 
 }

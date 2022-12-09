@@ -45,8 +45,9 @@
                           <tr>
                             <th>Nombre Servicio</th>
                             <th>Categoría</th>
+                            <th>Costo</th>
                             <th>Estado</th>
-                            <th>Fecha</th>
+                            <th>Fecha de registro</th>
                             <th>Acciones</th>
                           </tr>
                           </thead>
@@ -54,6 +55,7 @@
                           <tr *ngFor="let servicio of servicios">
                              <td>{{ servicio.nombre }}</td>
                              <td>{{ servicio.categoria }}</td>
+                             <td>{{ servicio.costo }}</td>
                              <td>{{ servicio.estado }}</td>
                              <td>{{ servicio.fecha }}</td>
                              

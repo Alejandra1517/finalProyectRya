@@ -161,6 +161,7 @@
                       >
                         <span>El campo es <strong>es obligatorio</strong></span>
                       </div>
+
                       <div
                         class="text-danger"
                         *ngIf="
@@ -180,31 +181,29 @@
                         [(ngModel)]="selectedCliente.documento"
                         class="form-control form-control-lg"
                         placeholder="Documento"
-                      />
+                        />
+
                       <div class="text-danger" *ngIf="clientesForm.get('documento')?.hasError('required') &&
                           clientesForm.get('documento')?.touched">
                         <span>El campo <strong>es obligatorio</strong></span>
                       </div>
+
                       <div
-                        class="text-danger" *ngIf="clientesForm.get('documento')?.hasError('minLength') &&
+                        class="text-danger" *ngIf="clientesForm.get('documento')?.hasError('minlength') &&
                           (clientesForm.get('documento')?.touched && clientesForm.get('documento')?.dirty)"> 
                           <span>Debe ingresar por lo menos
                           <strong> 8 números </strong></span>
                       </div>
+
+
                       <div
-                        class="text-danger"
-                        *ngIf="
-                          clientesForm
-                            .get('documento')
-                            ?.hasError('maxlength') &&
-                          clientesForm.get('documento')?.touched
-                        "
-                      >
-                        <span
-                          >Debe ingresar menos de
-                          <strong> 11 números </strong></span
-                        >
+                        class="text-danger" *ngIf="clientesForm.get('documento')?.hasError('maxlength') &&
+                          (clientesForm.get('documento')?.touched && clientesForm.get('documento')?.dirty)"> 
+                          <span>Debe ingresa menos de
+                          <strong> 11 números </strong></span>
                       </div>
+
+                
                     </div>
                     <div class="mb-3">
                       <input
@@ -223,6 +222,15 @@
                       >
                         <span>El campo <strong>es obligatorio</strong></span>
                       </div>
+
+                      <div
+                        class="text-danger" *ngIf="clientesForm.get('telefono')?.hasError('minlength') &&
+                          (clientesForm.get('telefono')?.touched && clientesForm.get('telefono')?.dirty)"> 
+                          <span>Debe ingresar por lo menos
+                          <strong> 8 números </strong></span>
+                      </div>
+
+                      
                     </div>
                     <div class="mb-3">
                       <input

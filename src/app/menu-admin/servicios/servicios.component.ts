@@ -19,6 +19,7 @@ export class ServiciosComponent {
       id: 1,
       nombre: "Acabados",
       categoria: "Obra blanca",
+      costo: "124.000 m2",
       estado: "Activo",
       fecha: "28/11/2022"
       
@@ -28,6 +29,7 @@ export class ServiciosComponent {
         id: 2,
         nombre: "Baldosa",
         categoria: "Obra blanca",
+        costo: "124.000 m2",
         estado: "Activo",
         fecha: "28/11/2022"
 
