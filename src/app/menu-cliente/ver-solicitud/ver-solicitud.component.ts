@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Solicitudes } from 'src/app/models/solicitudes-clientes';
 
@@ -16,7 +16,7 @@ export class VerSolicitudComponent {
       idSolicitud: 1,
       nombreCliente: 'Julian',
       servicios: 'Enchape',
-      estado: 'activo',
+      estado: 'En proceso',
 
       servicio: 'puerta',
       cantidad: 2,
@@ -27,7 +27,7 @@ export class VerSolicitudComponent {
       idSolicitud: 2,
       nombreCliente: 'Julio',
       servicios: 'ventana',
-      estado: 'activo',
+      estado: 'Cancelado',
 
       servicio: 'baldosa',
       cantidad: 0,

@@ -60,6 +60,8 @@ export class ClientesComponent{
       return this.clientesForm.get('documento');
     } 
 
+
+
    
 
 
@@ -70,6 +72,7 @@ export class ClientesComponent{
     this.clientes.push(this.selectedCliente);
 
     this.toastrSve.success('Registrado correctamente');
+
 
     this.selectedCliente = new Clientes()
 

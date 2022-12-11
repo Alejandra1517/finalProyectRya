@@ -32,43 +32,55 @@
 
                   <div class="row g-2">
 
+                    <div class="row g-3">
+
+          
+                      <div class="col-sm-4">
+
+                        <label for="floatingTextarea2 ">Categoría servicio</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                          <option value="1">Obra blanca</option>
+                          <option value="2">Obra negra</option>
+                          <option value="3">Obra gris</option>
+                        </select>
+                        
+                      </div>
+
+
+                      <div class="col-sm-4">
+
+                        <label for="floatingTextarea2">Seleccionar servicio</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                          <option value="1">Estuco</option>
+                          <option value="2">Reestructuración</option>
+                          <option value="3">Acabados</option>
+                          <option value="4">Otro</option>
+                        </select>
+                        
+
+                      </div>
+
+                      <div class="col-sm-4 mt-5">
+   
+            
+                          <div class="col-sm-5">
+                            <fieldset disabled>
+                              <input type="tex" placeholder="Otro" class="form-control">
+                            </fieldset>
+                          </div>
+          
+                      </div>
+
+
+                    </div>
 
                     <div class="row g-3 mb-3">
 
-                      <div class="col-sm-6">
-                        <input type="text" 
-                        formControlName="servicio"
-                        [(ngModel)]="selectedSolicitudes.servicio"
-                        class="form-control" placeholder="Servicio">
-
-                        <div
-                        class="text-danger"
-                        *ngIf="
-                          solicitudesForm
-                            .get('servicio')
-                            ?.hasError('pattern') &&
-                            solicitudesForm.get('servicio')?.dirty
-                        "
-                      >
-                        <span>Ingrese solamente <strong> texto </strong></span>
-                      </div>
-
-                      <div
-                      class="text-danger"
-                      *ngIf="
-                      solicitudesForm
-                          .get('servicio')
-                          ?.hasError('required') &&
-                          solicitudesForm.get('servicio')?.touched
-                      "
-                    >
-                      <span>El campo es <strong>es obligatorio</strong></span>
-                    </div>
-                      </div>
+                    
+                      
 
 
-
-                      <div class="col-sm-6">
+                      <div class="col-sm-4">
                         <input type="number"
                         formControlName="cantidad"
                         [(ngModel)]="selectedSolicitudes.cantidad" 
@@ -125,6 +137,7 @@
                       </div>
                       </div>
                     </div>
+                    
                     <div class="col-auto">
                       <button class="btn btn-secondary mx-2 float-right" routerLink="../servicios-clientes">Volver</button>
                       <button [disabled]="solicitudesForm.invalid" class="btn btn-success float-right">Agregar

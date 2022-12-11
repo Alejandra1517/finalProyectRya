@@ -102,44 +102,138 @@
         <div class="row p-2">
             <div class="col-md-12">
 
-                <div class="card">
+                
+          <div class="card">
 
 
-                    <div class="card-body">
+            <div class="card-body">
+
+              <form [formGroup]="cotizacionesForm" (ngSubmit)="agregarCotizaciones()">
+                <div class="row g-3">
+
+                  <div class="row g-2">
+
+                    <div class="row g-3">
+
+          
+                      <div class="col-sm-4">
+
+                        <label for="floatingTextarea2 ">Categoría servicio</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                          <option value="1">Obra blanca</option>
+                          <option value="2">Obra negra</option>
+                          <option value="3">Obra gris</option>
+                        </select>
+                        
+                      </div>
 
 
-                        <div class="row g-3">
+                      <div class="col-sm-4">
 
-                            <div class="col-sm-7">
-                              <input type="text" class="form-control" placeholder="Servicio">
-                            </div>
-                            <div class="col-sm">
-                              <input type="number" class="form-control" placeholder="Cantidad">
-                            </div>
+                        <label for="floatingTextarea2">Seleccionar servicio</label>
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                          <option value="1">Estuco</option>
+                          <option value="2">Reestructuración</option>
+                          <option value="3">Acabados</option>
+                          <option value="4">Otro</option>
+                        </select>
+                        
 
-                        <div class="row g-2">
+                      </div>
 
-
-                  
-
-
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Describa el servicio que desea" id="floatingTextarea2" style="height: 100px"></textarea>
-                                <label for="floatingTextarea2">Descripción</label>
-                            </div>
-
-                            <div class="col-auto">
-                            <button class="btn btn-success float-right" (click)="agregarCotizaciones()">Agregar servicio</button>
-                              </div>
-
-                        </div>
-
-
+                      <div class="col-sm-4 mt-5">
+   
+            
+                          <div class="col-sm-5">
+                            <fieldset disabled>
+                              <input type="tex" placeholder="Otro" class="form-control">
+                            </fieldset>
                           </div>
+          
+                      </div>
 
 
                     </div>
+
+                    <div class="row g-3 mb-3">
+
+                    
+                      
+
+
+                      <div class="col-sm-4">
+                        <input type="number"
+                        formControlName="cantidad"
+                        [(ngModel)]="selectedCotizaciones.cantidad" 
+                        class="form-control" placeholder="Cantidad">
+
+                        <div
+                        class="text-danger"
+                        *ngIf="
+                        cotizacionesForm
+                            .get('cantidad')
+                            ?.hasError('required') &&
+                            cotizacionesForm.get('cantidad')?.touched
+                        "
+                      >
+                        <span>El campo es <strong>es obligatorio</strong></span>
+                      </div>
+                      </div>
+                    </div>
+
+                    <div class="row g-2 mt-2">
+
+
+                      <div class="form-floating col-md-12 mb-2">
+                        <textarea 
+                        formControlName="descripcion"
+                        [(ngModel)]="selectedCotizaciones.descripcion"
+                        class="form-control" placeholder="Describa el servicio que desea"
+                          id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Descripción</label>
+
+
+                        <div
+                        class="text-danger"
+                        *ngIf="
+                          cotizacionesForm
+                            .get('descripcion')
+                            ?.hasError('pattern') &&
+                            cotizacionesForm.get('descripcion')?.dirty
+                        "
+                      >
+                        <span>Ingrese solamente <strong> texto </strong></span>
+                      </div>
+
+                      <div
+                        class="text-danger"
+                        *ngIf="
+                        cotizacionesForm
+                            .get('descripcion')
+                            ?.hasError('required') &&
+                            cotizacionesForm.get('descripcion')?.touched
+                        "
+                      >
+                        <span>El campo es <strong>es obligatorio</strong></span>
+                      </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-auto">
+                      <button class="btn btn-secondary mx-2 float-right" routerLink="../cotizaciones">Volver</button>
+                      <button [disabled]="cotizacionesForm.invalid" cotizacionesForm.valid class="btn btn-success float-right">Agregar
+                      servicio</button>
+                    </div>
+
                   </div>
+
+                </div>
+              </form>
+
+
+            </div>
+          </div>
+
 
 
             </div>
@@ -172,8 +266,6 @@
                                 <th>Servicio</th>
                                 <th>Cantidad</th>
                                 <th>Descripcion</th>
-                                <th>Materiales</th>
-                                <th>Fecha inicio</th>
                                 <th>Total servicios</th>
                                 <th>Acciones</th>
                               </tr>
@@ -183,15 +275,10 @@
                                 <td>{{ cotizacion.servicio }}</td>
                                 <td>{{ cotizacion.cantidad }}</td>
                                 <td>{{ cotizacion.descripcion }}</td>
-                                <td><button class="btn btn-success ml-2" data-toggle="modal"
-                                    data-target="#exampleModal"><i class="fa-solid fa-plus"></i></button>
-                                </td>
-                                <td>{{ cotizacion.fechaInicio }}</td>
                                 <td>{{ cotizacion.total }}</td>
                                 <td>
-                                  <button class="btn btn-warning m-2" data-toggle="modal"
-                                  data-target="#modificarServicio"><i class="fa-solid fa-pen-to-square"></i></button>
-                                  <button class="btn btn-danger m-2"><i class="fa-sharp fa-solid fa-trash-can"></i></button>
+                                  <button routerLink="../materiales-crearcotizacion" class="btn btn-warning m-2"><i class="fa-solid fa-pen-to-square"></i></button>
+                                  <button (click)="eliminarCotizacion(cotizacion)" class="btn btn-danger m-2"><i class="fa-sharp fa-solid fa-trash-can"></i></button>
                                 </td>
                             </tbody>
   
@@ -231,146 +318,6 @@
       </div>
       <!-- /.container-fluid -->
 
-
-
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Agregar materiales</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-  
-            <div class="container">
-              <!-- Info boxes -->
-              <div class="row p-2">
-                <div class="col-md-12">
-  
-  
-                  <nav class="navbar bg-light mx-3">
-                    <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
-  
-                  </nav>
-  
-                  <ul class="list-group p-2">
-                    <li class="list-group-item">Barillas</li>
-                  </ul>
-  
-                  <table id="example2" class="table table-bordered table-hover mt-4 p-2">
-                    <thead class="table-dark">
-                      <tr>
-                        <th>Nombre material</th>
-                        <th>Cantidad</th>
-                        <th>Precio unitario</th>
-                        <th>Acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Barillas</td>
-                        <td>
-                          <input type="number" class="form-control sm-3" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" value="2">
-                        </td>
-                        <td>30.000</td>
-                        <td>
-  
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                          </div>
-  
-                        </td>
-                    </tbody>
-  
-                  </table>
-  
-                  <label for="exampleFormControlInput1" class="form-label">Total materiales</label>
-  
-                  <fieldset disabled>
-                    <input type="number" placeholder="100.000" class="form-control">
-                  </fieldset>
-  
-  
-  
-                </div>
-              </div>
-            </div>
-  
-  
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-  
-            <button type="button" class="btn btn-primary" (click)="modificarCotizacion()" data-dismiss="modal">Guardar</button>
-          </div>
-        </div>
-  
-  
-  
-      </div>
-    </div>
-
-
-    <div class="modal fade" id="modificarServicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modificar servicio</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-          <div class="container">
-            <!-- Info boxes -->
-            <div class="row p-2">
-              <div class="col-md-12">
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">Servicio</label>
-                  <input type="text" [(ngModel)]="editCotizacion.servicio" class="form-control"
-                    placeholder="Ingrese el servicio">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">Cantidad</label>
-                  <input type="number" [(ngModel)]="editCotizacion.cantidad" class="form-control"
-                    placeholder="Ingrese la cantidad">
-                </div>
-                <div class="form-floating">
-                  <textarea class="form-control" [(ngModel)]="editCotizacion.descripcion"
-                    placeholder="Ingresa una descripcion" id="floatingTextarea2" style="height: 100px"></textarea>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
-          <button type="button" class="btn btn-primary" (click)="modificarCotizacion()"
-            data-dismiss="modal">Modificar</button>
-        </div>
-      </div>
-
-
-
-
-
-
-    </div>
-  </div>
-  
   
 
     </section>

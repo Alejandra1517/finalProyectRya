@@ -52,20 +52,22 @@ export class CrearCotizacionComponent {
 
 
       this.cotizacionesForm = this.fb.group({
-        cliente: ['', Validators.required],
-        fechaDuracion: ['', Validators.required],
-        servicio: ['', Validators.required],
+        // cliente: ['', Validators.required],
+        // fechaDuracion: ['', Validators.required],
+        // servicio: ['', Validators.required],
         cantidad: ['', Validators.required],
         descripcion: ['', Validators.required]
       })
 
       this.cotizacionesEditForm = this.fb.group({
-        cliente: ['', Validators.required],
-        fechaDuracion: ['', Validators.required],
-        servicio: ['', Validators.required],
+        // cliente: ['', Validators.required],
+        // fechaDuracion: ['', Validators.required],
+        // servicio: ['', Validators.required],
         cantidad: ['', Validators.required],
         descripcion: ['', Validators.required]
       })
+
+
 
 
     }
@@ -80,6 +82,10 @@ export class CrearCotizacionComponent {
     this.toastrSve.success('Registrada correctamente');
 
     this.selectedCotizaciones = new crearCotizaciones()
+  
+    this.cotizacionesForm?.valid;
+  
+
 
   }
   

@@ -28,6 +28,10 @@ import { MainSidebar2Component } from './menu-cliente/main-sidebar2/main-sidebar
 import { CrearSolicitudClienteComponent } from './menu-cliente/crear-solicitud-cliente/crear-solicitud-cliente.component';
 import { VerSolicitudComponent } from './menu-cliente/ver-solicitud/ver-solicitud.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
+import { ServiciosObraComponent } from './menu-admin/servicios-obra/servicios-obra.component';
+import { AgregarmaterialesSolicitudComponent } from './menu-admin/agregarmateriales-solicitud/agregarmateriales-solicitud.component';
+import { MaterialesCrearcotizacionComponent } from './menu-admin/materiales-crearcotizacion/materiales-crearcotizacion.component';
+import { MaterialesModificarcotizacionComponent } from './menu-admin/materiales-modificarcotizacion/materiales-modificarcotizacion.component';
 
 
 
@@ -58,8 +62,16 @@ const routes:Routes = [
  
     {path: 'crear-solicitud', component:CrearSolicitudComponent},
     {path: 'crear-cotizacion', component:CrearCotizacionComponent},
+    {path: 'servicios-obra', component:ServiciosObraComponent},
     {path: 'modificar-cotizacion', component:ModificarCotizacionComponent},
-    {path: 'modificar-solicitud', component:ModificarSolicitudComponent}
+    {path: 'modificar-solicitud', component:ModificarSolicitudComponent},
+
+
+    {path: 'agregarmaterial-solicitud', component:AgregarmaterialesSolicitudComponent},
+
+    {path: 'materiales-crearcotizacion', component:MaterialesCrearcotizacionComponent},
+
+    {path: 'materiales-modificarcotizacion', component:MaterialesModificarcotizacionComponent}
 
  
   ]

@@ -44,7 +44,7 @@
                               <th>Id obra</th>
                               <th>Nombre Cliente</th>
                               <th>Servicios</th>
-                              <th>Estado obra</th>
+                              <th>Fecha de inicio</th>
                               <th>Acciones</th>
                             </tr>
                             </thead>
@@ -55,19 +55,11 @@
                                <td>
                                 <button
                                 class="btn btn-success mt-1 ml-5"
-                                data-toggle="modal"
-                                data-target="#exampleModal">
+                                routerLink="../servicios-obra">
                                 ver
                               </button>
                                </td>
-                               <td>
-                                <select class="form-select" aria-label="Default select example">
-                                  <option selected>Elegir estado</option>
-                                  <option value="1">En proceso</option>
-                                  <option value="2">Terminado </option>
-                                  <option value="3">Cancelado</option>
-                                </select>
-                               </td>
+                               <td>{{ obra.fechaRegistro }}</td>
                                
                                <td><button class="btn btn-danger" (click)="eliminarObra(obra)"><i class="fa-sharp fa-solid fa-trash-can"></i></button></td>
                          
@@ -115,15 +107,6 @@
                         <div class="col-md-12">
 
 
-                            <nav class="navbar bg-light mx-3">
-                                <form class="d-flex" role="search">
-                                    <input class="form-control me-2" type="search" placeholder="Buscar"
-                                        aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                                </form>
-
-                            </nav>
-
                             <table id="example2" class="table table-bordered table-hover mt-3 p-2">
                               
                               <thead class="table-dark">
@@ -140,9 +123,12 @@
 
                                         <td>
 
-                                          <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
-                                        </div>
+                                          <select class="form-select" aria-label="Default select example">
+                                            <option value="1">En proceso</option>
+                                            <option value="2">Terminado </option>
+                                            <option value="3">Cancelado</option>
+                                          </select>
+                                          
                                       </td>
 
                                       <td>
@@ -163,9 +149,11 @@
                                       
                                         <td>
 
-                                          <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
-                                        </div>
+                                          <select class="form-select" aria-label="Default select example">
+                                            <option value="1">En proceso</option>
+                                            <option value="2">Terminado </option>
+                                            <option value="3">Cancelado</option>
+                                          </select>
 
                                         </td>
 
